@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpha Clash Pro</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Css Style Sheet -->
+    <link rel="stylesheet" href="Styles/Styles.css">
+</head>
+
+<body>
+    <main class="bg-[#010313] min-h-screen bg-[url(images/background.png)] bg-no-repeat bg-center">
+        <section id="home" class="home text-white">
+            <div class="text-center min-h-screen flex flex-col items-center justify-center gap-4">
+                <h1 class="text-9xl uppercase font-bold font-anton">Alphabet Clash</h1>
+                <p class="text-xl font-semibold font-poppins">Unleash Your Keyboard Kung Fu : Press “Enter” to Play</p>
+                <button onclick="play()" class="btn btn-primary text-white uppercase mt-4 text-xl">Play Now</button>
+            </div>
+        </section>
+        <section id="play-ground" class="hidden flex flex-col items-center justify-center min-h-screen gap-12">
+            <!-- Display -->
+            <div
+                class="artboard artboard-horizontal phone-6 bg-[#FFFFFFB3] border-[20px] border-[#010313CC] rounded-2xl">
+                <p class="bg-[#010313CC] font-semibold text-white w-fit mx-auto px-3 pb-3 rounded-b-lg">Don't watch
+                    keyboard while
+                    playing...</p>
+                <h1 id="display-alphabet"
+                    class="text-black text-8xl font-poppins font-bold text-center mt-14 uppercase">Y</h1>
+            </div>
+            <!-- Keyboard Start -->
+            <div>
+                <div class="my-1 flex w-full justify-center gap-1">
+                    <kbd id="q" class="kbd uppercase text-xl px-3 py-2 font-bold text-white">q</kbd>
+                    <kbd id="w" class="kbd uppercase text-xl px-3 py-2 font-bold text-white">w</kbd>
+                    <kbd id="e" class="kbd uppercase text-xl px-3 py-2 font-bold text-white">e</kbd>
+                    <kbd id="r" class="kbd uppercase text-xl px-3 py-2 font-bold text-white">r</kbd>
+                    <kbd id="t" class="kbd uppercase text-xl px-3 py-2 font-bold text-white">t</kbd>
+                    <kbd id="y" class="kbd uppercase text-xl px-3 py-2 font-bold text-white">y</kbd>
+                    <kbd id="u" class="kbd uppercase text-xl px-3 py-2 font-bold text-white">u</kbd>
+                    <kbd id="i" class="kbd uppercase text-xl px-3 py-2 font-bold text-white">i</kbd>
+                    <kbd id="o" class="kbd uppercase text-xl px-3 py-2 font-bold text-white">o</kbd>
+                    <kbd id="p" class="kbd uppercase text-xl px-3 py-2 font-bold text-white">p</kbd>
+                </div>
+                <div class="my-1 flex w-full justify-center gap-1">
+                    <kbd id="a" class="kbd uppercase text-xl px-3 py-2 font-bold text-white">a</kbd>
+                    <kbd id="s" class="kbd uppercase text-xl px-3 py-2 font-bold text-white">s</kbd>
+                    <kbd id="d" class="kbd uppercase text-xl px-3 py-2 font-bold text-white">d</kbd>
+                    <kbd id="f" class="kbd uppercase text-xl px-3 py-2 font-bold text-white">f</kbd>
+                    <kbd id="g" class="kbd uppercase text-xl px-3 py-2 font-bold text-white">g</kbd>
+                    <kbd id="h" class="kbd uppercase text-xl px-3 py-2 font-bold text-white">h</kbd>
+                    <kbd id="j" class="kbd uppercase text-xl px-3 py-2 font-bold text-white">j</kbd>
+                    <kbd id="k" class="kbd uppercase text-xl px-3 py-2 font-bold text-white">k</kbd>
+                    <kbd id="l" class="kbd uppercase text-xl px-3 py-2 font-bold text-white">l</kbd>
+                </div>
+                <div class="my-1 flex w-full justify-center gap-1">
+                    <kbd id="z" class="kbd uppercase text-xl px-3 py-2 font-bold text-white">z</kbd>
+                    <kbd id="x" class="kbd uppercase text-xl px-3 py-2 font-bold text-white">x</kbd>
+                    <kbd id="c" class="kbd uppercase text-xl px-3 py-2 font-bold text-white">c</kbd>
+                    <kbd id="v" class="kbd uppercase text-xl px-3 py-2 font-bold text-white">v</kbd>
+                    <kbd id="b" class="kbd uppercase text-xl px-3 py-2 font-bold text-white">b</kbd>
+                    <kbd id="n" class="kbd uppercase text-xl px-3 py-2 font-bold text-white">n</kbd>
+                    <kbd id="m" class="kbd uppercase text-xl px-3 py-2 font-bold text-white">m</kbd>
+                    <kbd id="/" class="kbd uppercase text-xl px-3 py-2 font-bold text-white">/</kbd>
+                </div>
+            </div>
+            <!-- Keyboard End -->
+            <!-- Life Score -->
+            <div class="flex justify-between w-3/4">
+                <button class="btn rounded-full px-3 py-1 bg-purple-300 text-white font-semibold text-base">
+                    Life
+                    <img src="images/Group 23.svg" alt="">
+                    <span id="life">3</span>
+                </button>
+                <button class="btn rounded-full px-3 py-1 bg-blue-300 text-white font-semibold text-base">
+                    Score
+                    <img src="images/monetization_on.svg" alt="">
+                    <span id="score">0</span>
+                </button>
+            </div>
+        </section>
+        <section id="score" class="hidden flex items-center justify-center h-screen">
+            <div class="text-white text-center space-y-4 bg-[#FFFFFF33] rounded-lg p-6">
+                <h1 class="text-8xl font-poppins">
+                    <span class="font-extrabold">Score:</span>
+                    <span class="">14</span>
+                </h1>
+                <button class="bg-white px-6 py-3 rounded-lg text-black font-bold text-base">Play Again</button>
+                <p class="font-poppins">Practice will make you Pro</p>
+            </div>
+        </section>
+    </main>
+    <script src="Script/alpha-clash.js"></script>
+</body>
+
+</html>
