@@ -7,8 +7,8 @@ function play() {
     const display = document.getElementById("display-alphabet");
     display.innerText = getAlphabet;
     const alphabetBtn = document.getElementById(getAlphabet);
-    alphabetBtn.style.backgroundColor = "yellow"
-    alphabetBtn.style.color = "black"
+    alphabetBtn.style.backgroundColor = "yellow";
+    alphabetBtn.style.color = "black";
 }
 
 function getARandomAlphabet() {
@@ -32,7 +32,7 @@ function onKeyPress(event) {
         const alphabetBtn = document.getElementById(displayText);
         alphabetBtn.style.backgroundColor = "#191e24"
         alphabetBtn.style.color = "white"
-        const score = document.getElementById("score");
+        const score = document.getElementById("new-score");
         const scoreText = score.innerText;
         const scoreNumber = parseFloat(scoreText);
         const newScore = scoreNumber + 1;
@@ -43,7 +43,17 @@ function onKeyPress(event) {
         const lifeNumber = parseFloat(lifeText);
         const newLife = lifeNumber - 1;
         life.innerText = newLife;
-        // console.log(newLife);
+        if (newLife === 0) {
+            const newScore = document.getElementById("new-score");
+            const scoreText = newScore.innerText;
+            const scoreNumber = parseFloat(scoreText);
+            const finalScore = document.getElementById("final-score");
+            finalScore.innerText = scoreNumber;
+            const playGround = document.getElementById("play-ground");
+            playGround.classList.add("hidden");
+            const score = document.getElementById("score");
+            score.classList.remove("hidden");
+        }
     }
 }
 
