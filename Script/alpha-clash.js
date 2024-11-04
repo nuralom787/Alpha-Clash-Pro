@@ -11,6 +11,8 @@ function play() {
     alphabetBtn.style.color = "black";
 }
 
+
+
 function getARandomAlphabet() {
     const alphabetString = "abcdefghijklmnopqrstuvwxyz";
     const alphabets = alphabetString.split('');
@@ -22,10 +24,22 @@ function getARandomAlphabet() {
     return alphabet;
 };
 
+
 function onKeyPress(event) {
     const display = document.getElementById("display-alphabet");
     const displayText = display.innerText.toLowerCase();
     const key = event.key;
+    if (key === "Escape") {
+        const newScore = document.getElementById("new-score");
+        const scoreText = newScore.innerText;
+        const scoreNumber = parseFloat(scoreText);
+        const finalScore = document.getElementById("final-score");
+        finalScore.innerText = scoreNumber;
+        const playGround = document.getElementById("play-ground");
+        playGround.classList.add("hidden");
+        const score = document.getElementById("score");
+        score.classList.remove("hidden");
+    }
     if (key === displayText) {
         console.log("WOW, Great!");
         play()
@@ -55,6 +69,22 @@ function onKeyPress(event) {
             score.classList.remove("hidden");
         }
     }
+}
+
+
+function playAgain() {
+    const score = document.getElementById("score");
+    score.classList.add("hidden");
+    const playGround = document.getElementById("play-ground");
+    playGround.classList.remove("hidden");
+
+    // New Life Update.
+    const life = document.getElementById("life");
+    life.innerText = 3;
+
+    // Set New Score.
+    const newScore = document.getElementById("new-score");
+    newScore.innerText = 0;
 }
 
 document.addEventListener("keyup", onKeyPress)
